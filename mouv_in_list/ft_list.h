@@ -6,7 +6,7 @@
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/22 16:06:28 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/22 20:22:48 by skenn            ###   ########.fr       */
+/*   Updated: 2015/09/22 20:43:11 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,10 +26,9 @@ typedef struct		s_list
 	struct s_list	*tail;
 	struct s_list	*head;
 }					t_list;
-t_list				*ft_create_new_list(void);
-t_list				*ft_create_elem(void *data);
-void				ft_elem_push_back(t_list *begin_list, void *data);
-void				ft_elem_push_front(t_list *begin_list, void *data);
+t_list				*ft_tlist_new_list(void);
+t_list				*ft_list_push_back(t_list *begin_list, void *data);
+t_list				*ft_list_push_front(t_list *begin_list, void *data);
 void				ft_print_list(t_list *begin_list);
 
 #endif
