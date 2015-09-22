@@ -6,10 +6,11 @@
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/21 17:24:59 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/22 12:13:51 by skenn            ###   ########.fr       */
+/*   Updated: 2015/09/23 01:04:13 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft_list.h"
 #include <fcntl.h>
 #include <sys/types.h>
 #include <sys/uio.h>
@@ -26,8 +27,9 @@ int		main(int argc, char **argv)
 	int i;
 	int fd;
 	int ret;
+	t_list *list;
 	char buf[BUF_SIZE];
-	ssize_t read (int fd, void *buf, size_t count);
+	//ssize_t read (int fd, void *buf, size_t count);
 	i = 1;
 	while(i < argc)
 	{
@@ -36,10 +38,13 @@ int		main(int argc, char **argv)
 		{
 			ft_putstr("open (): failed, try again!");
 		}
-		ft_putnbr(fd);
-		while (read(fd, buf, sizeof(buf)) > 0 )
+		//ft_putnbr(fd);
+		while (read(fd, buf, BUF_SIZE))
 		{
-			write(1, &buf, 1);
+			ft_list_push_back(&list, buf);
+			ft_print_list(list);
+			ft_putnbr(j);
+			j++;
 		}
 		if (close(fd) == -1)
 		{
