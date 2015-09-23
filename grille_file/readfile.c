@@ -6,7 +6,7 @@
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/21 17:24:59 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/23 10:56:24 by skenn            ###   ########.fr       */
+/*   Updated: 2015/09/23 13:34:19 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,11 +38,9 @@ int		main(int argc, char **argv)
 		{
 			ft_putstr("open (): failed, try again!");
 		}
-		//ft_putnbr(fd);
 		while (read(fd, &buf, BUF_SIZE))
 		{
 			ft_list_push_back(&list, buf);
-			//ft_print_list(list);
 		}
 		ft_print_list(list);
 		if (close(fd) == -1)
