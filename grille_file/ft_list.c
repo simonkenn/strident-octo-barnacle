@@ -6,13 +6,13 @@
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/22 23:10:43 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/23 00:58:04 by skenn            ###   ########.fr       */
+/*   Updated: 2015/09/23 10:45:42 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_list.h"
 
-t_list		*ft_create_elem(char *data)
+t_list		*ft_create_elem(char data)
 {
 	t_list *element;
 
@@ -27,7 +27,7 @@ t_list		*ft_create_elem(char *data)
 		return (NULL);
 }
 
-void		ft_list_push_back(t_list **begin_list, char *data)
+void		ft_list_push_back(t_list **begin_list, char data)
 {
 	t_list *aux;
 

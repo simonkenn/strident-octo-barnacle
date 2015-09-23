@@ -1,44 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_put.c                                           :+:      :+:    :+:   */
+/*   ft_list.h                                          :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2015/09/21 17:45:48 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/23 10:42:30 by skenn            ###   ########.fr       */
+/*   Created: 2015/09/16 17:07:45 by skenn             #+#    #+#             */
+/*   Updated: 2015/09/23 10:43:52 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#ifndef FT_LIST_H
+# define FT_LIST_H
 
-void	ft_putchar(char c)
+# include <stdlib.h>
+
+typedef struct		s_list
 {
-	write(1, &c, 1);
-}
+	struct s_list	*next;
+	char			data;
+}					t_list;
 
-void	ft_putstr(char *str)
-{
-	int i;
+void				ft_print_list(t_list *begin_list);
+void				ft_list_push_back(t_list **begin_list, char data);
 
-	i = 0;
-	while (str[i])
-	{
-		ft_putchar(str[i]);
-		i++;
-	}
-}
-
-void	ft_putnbr(int nb)
-{
-	if (nb < 0)
-	{
-		ft_putchar('-');
-		nb = nb * -1;
-	}
-	if (nb >= 10)
-	{
-		ft_putnbr(nb / 10);
-	}
-	ft_putchar((nb % 10) + '0');
-}
+#endif

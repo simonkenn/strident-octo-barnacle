@@ -6,7 +6,7 @@
 /*   By: skenn <marvin@42.fr>                       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2015/09/21 17:24:59 by skenn             #+#    #+#             */
-/*   Updated: 2015/09/23 01:04:13 by skenn            ###   ########.fr       */
+/*   Updated: 2015/09/23 10:56:24 by skenn            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,7 @@ int		main(int argc, char **argv)
 	int fd;
 	int ret;
 	t_list *list;
-	char buf[BUF_SIZE];
+	char buf;
 	//ssize_t read (int fd, void *buf, size_t count);
 	i = 1;
 	while(i < argc)
@@ -39,13 +39,12 @@ int		main(int argc, char **argv)
 			ft_putstr("open (): failed, try again!");
 		}
 		//ft_putnbr(fd);
-		while (read(fd, buf, BUF_SIZE))
+		while (read(fd, &buf, BUF_SIZE))
 		{
 			ft_list_push_back(&list, buf);
-			ft_print_list(list);
-			ft_putnbr(j);
-			j++;
+			//ft_print_list(list);
 		}
+		ft_print_list(list);
 		if (close(fd) == -1)
 		{
 			ft_putstr("close (): failed, try again!");
